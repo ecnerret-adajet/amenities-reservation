@@ -57,8 +57,9 @@ class AmenitiesController extends Controller
     {
         $amenity = Auth::user()->amenities()->create($request->all());
 
-        $amenity->reservations()->attach($request->all('reservation_list'));
-        $amenity->owners()->attach($request->all('owner_list'));
+        $amenity->reservations()->attach((!$request->input('reservation_list') ? [] : $request->input('reservation_list')));
+
+        $amenity->owners()->attach((!$request->input('owner_list') ? [] : $request->input('owner_list')));
 
         return redirect('dashboard');
     }
@@ -71,7 +72,12 @@ class AmenitiesController extends Controller
      */
     public function show(Amenity $amenity)
     {
-        return view('amenities.show', compact('amenity'));        
+        $reservations = Reservation::all();
+        $owners = Owner::all();
+        return view('amenities.show', compact('amenity',
+            'reservations',
+            'owners'
+            ));        
     }
 
     /**

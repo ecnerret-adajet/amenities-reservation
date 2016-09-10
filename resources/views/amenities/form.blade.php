@@ -39,16 +39,16 @@
                          </div>
 
 
-                        <div class="form-group{{ $errors->has('building_name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('tower_no') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label"> 
-                        {!! Form::label('building_name', 'Building Name:')  !!}
+                        {!! Form::label('tower_no', 'Building Name:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::text('building_name', null,  ['class' => 'form-control']) !!}     
+                        {!! Form::text('tower_no', null,  ['class' => 'form-control']) !!}     
 
-                        @if ($errors->has('building_name'))
+                        @if ($errors->has('tower_no'))
                         <span class="help-block">
-                        <strong>{{ $errors->first('building_name') }}</strong>
+                        <strong>{{ $errors->first('tower_no') }}</strong>
                         </span>
                         @endif
                         </div>
@@ -112,17 +112,15 @@
                          </div>
 
 
-                                <div class="form-group">
+                        <div class="form-group">
                          <label class="col-md-4 control-label"> 
                          {!! Form::label('name_occupants', 'Name of occupants:')  !!}
                         </label>
                         <div class="col-md-6">
-                        <div class="input-group">
-                        <input type="text" name="name_occupants[]" class="form-control">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-success btn-add"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-                        </span>
-                        </div>
+                       
+                        {!! Form::textarea('name_occupants',null,['class' => 'form-control'])!!}
+
+                   
                          </div>
                          </div>
 
@@ -132,13 +130,10 @@
                          {!! Form::label('name_guest', 'Name of guest:')  !!}
                         </label>
                         <div class="col-md-6">
-                        <div class="input-group">
-                        <input type="text" name="name_guest[]" class="form-control">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-success btn-add"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-                        </span>
-                        </div>
-                         </div>
+                    
+                        {!! Form::textarea('name_guest',null,['class' => 'form-control'])!!}
+
+                        
                          </div>
 
   
@@ -150,7 +145,7 @@
                        
                         
                         
-                       <div class="col-md-3 col-md-offset-4">
+                       <div class="col-md-3 col-md-offset-4" style="margin-top: 20px ! important;">
 
                         {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary'])  !!}
 

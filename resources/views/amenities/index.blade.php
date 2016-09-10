@@ -1,20 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
-<h1>Amenities <span class="badge pull-right">Amenities
-{{$amenities->count()}}
-</span></h1>
+
+<ul class="breadcrumb">
+  <li><a href="#">Dashboard</a></li>
+  <li class="active" ><a href="{{url('amenities')}}">Amenities</a></li>
+</ul>
 
 
-
-</div>
-<div class="row">
-<div class="col-md-12">
-
-
-
-    
-   <table  id="room"  class="dt-responsive nowrap display table-responsive table-hover table" width="100%">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="font-weight: 500;"> Amenities <a href="{{url('amenities/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Amenity</a></h3>
+  </div>
+  <div class="panel-body">
+  <table  id="room"  class="dt-responsive nowrap display table-responsive table-bordered table-hover table" width="100%">
   <thead>
     <tr>
               <th></th>
@@ -67,22 +65,18 @@
       <td>{{$amenity->conforme}}</td>
       <td>{{$amenity->approved_by}}</td>
       <td>
-      <a href="{{url('/amenities/'.$amenity->id)}}">
-      <i class="action ion-ios-compose-outline"></i>
-      </a>
+      <a href="{{url('/amenities/'.$amenity->id)}}"class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a>
       </td>
     </tr>
      @endforeach
   </tbody>
 </table> 
 
-         
-       
-
-
-
-
-</div><!-- end column -->
+  </div>
 </div>
+
+
+
+
 
 @endsection

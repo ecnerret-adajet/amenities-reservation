@@ -68,7 +68,7 @@
                     <a href="{{url('/rooms/create')}}">Rooms Management</a>
                 </li>
                 <li>
-                    <a href="{{url('/amenities/create')}}">Amenities</a>
+                    <a href="{{url('/amenities')}}">Amenities</a>
                 </li>
                 <li>
                     <a href="{{url('/owners')}}">Owners</a>
@@ -146,6 +146,12 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+
+        <script>
+function myFunction() {
+    window.print();
+}
+</script>
 
 </body>
 
