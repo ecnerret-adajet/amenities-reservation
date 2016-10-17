@@ -75,7 +75,7 @@
                          {!! Form::label('birthday', 'Birth Date:')  !!}
                         </label>
                         <div class="col-md-6">
-                            {!! Form::input('date', 'birthday', $tenant->birthday, ['class' => 'form-control']) !!}         
+                            {!! Form::input('date', 'birthday', $tenant->birthday, ['class' => 'form-control']) !!}              
                          </div>
                          </div>
 
@@ -86,7 +86,7 @@
                         {!! Form::label('phone_num', 'Phone number:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::number('phone_num', null,  ['class' => 'form-control']) !!}     
+                        {!! Form::text('phone_num', null,   ['class' => 'form-control', "data-inputmask" => "'mask': '+63999-9999-999'", 'data-mask' ]) !!} 
 
                         @if ($errors->has('phone_num'))
                         <span class="help-block">
@@ -102,7 +102,7 @@
                         {!! Form::label('telephone_num', 'Telephone number:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::number('telephone_num', null,  ['class' => 'form-control']) !!}     
+                        {!! Form::text('telephone_num', null, ['class' => 'form-control', "data-inputmask" => "'mask': '9999-999'", 'data-mask']) !!}   
 
                         @if ($errors->has('telephone_num'))
                         <span class="help-block">
@@ -111,6 +111,25 @@
                         @endif
                         </div>
                         </div>
+
+
+<hr/>
+
+                                <div class="form-group{{ $errors->has('owner_list') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label"> 
+                        {!! Form::label('owner_list', 'Owner list:')  !!} 
+                        </label>
+                        <div class="col-md-6">
+                        {!! Form::select('owner_list', $owners, null, ['class' => 'form-control', 'placeholder' => '-- Select room owner --']) !!}
+
+                        @if ($errors->has('owner_list'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('owner_list') }}</strong>
+                        </span>
+                        @endif
+                        </div>
+                        </div>
+
 
                        
 

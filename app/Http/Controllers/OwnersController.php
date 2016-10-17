@@ -47,13 +47,8 @@ class OwnersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $tenants = Tenant::lists('first_name','id');
-        
-
-
-
-        return view('owners.create', compact('tenants'));
+    {    
+        return view('owners.create');
 
     }
 
@@ -68,14 +63,10 @@ class OwnersController extends Controller
         $owner = Auth::user()->owners()->create($request->all());  
 
 
-        if($request->hasFile('tenant_list')){
-        $owner->tenants()->attach($request->input('tenant_list'));
-         }
-
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = time() . '.' .$avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save( public_path('/img/owners/' . $filename ) ); 
+            Image::make($avatar)->resize(300,300)->save( public_path('../img/owners/' . $filename ) );  
             $owner->avatar = $filename;
             $owner->save();
         }
@@ -131,7 +122,6 @@ class OwnersController extends Controller
     public function destroy(Owner $owner)
     {
         $owner->delete();
-
         return redirect('home');
     }
 }

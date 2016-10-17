@@ -1,9 +1,28 @@
+                        <div class="form-group{{ $errors->has('building_list') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label"> 
+                        {!! Form::label('building_list', 'Building Name:')  !!} 
+                        </label>
+                        <div class="col-md-6">
+                        {!! Form::select('building_list', $buildings, null, ['class' => 'form-control', 'placeholder' => '-- Select Builidng name --']) !!}
+
+                        @if ($errors->has('building_list'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('building_list') }}</strong>
+                        </span>
+                        @endif
+                        </div>
+                        </div>
+
+
+
                         <div class="form-group{{ $errors->has('no_unit') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label"> 
                         {!! Form::label('no_unit', 'Unit no:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::number('no_unit', null,  ['class' => 'form-control']) !!}     
+
+                         {{ Form::selectRange('no_unit', 1,170, 
+                                null, array('placeholder' => ' -- Select Unit number --', 'class'=>'form-control select2' )) }}    
 
                         @if ($errors->has('no_unit'))
                         <span class="help-block">
@@ -20,7 +39,11 @@
                         {!! Form::label('floor_num', 'Floor Number:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::number('floor_num', null,  ['class' => 'form-control']) !!}     
+                        <?php
+                        $x = 0;
+                        ?>
+                         {{ Form::selectRange('floor_num', 1,17, 
+                                null, array('placeholder' => ' -- Select Floor Number --', 'class'=>'form-control select2' )) }}
 
                         @if ($errors->has('floor_num'))
                         <span class="help-block">
@@ -32,20 +55,6 @@
 
                   
 
-                         <div class="form-group{{ $errors->has('building_num') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label"> 
-                        {!! Form::label('building_num', 'Building Name:')  !!}
-                        </label>
-                        <div class="col-md-6">
-                        {!! Form::number('building_num', 'null',  ['class' => 'form-control']) !!}     
-
-                        @if ($errors->has('building_num'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('building_num') }}</strong>
-                        </span>
-                        @endif
-                        </div>
-                        </div>
 
                         <hr/>
 

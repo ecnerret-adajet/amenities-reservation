@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+<h1> Amenities </h1>
+
 <ul class="breadcrumb">
   <li><a href="#">Dashboard</a></li>
   <li class="active" ><a href="{{url('amenities')}}">Amenities</a></li>
@@ -21,7 +23,6 @@
       <th>Tower #</th>
       <th>Unit #</th>
       <th>Guest</th>
-      <th>Conforme</th>
        <th>Approved By</th>
        <th>Action</th>
     </tr>
@@ -36,7 +37,6 @@
       <th>Tower #</th>
       <th>Unit #</th>
       <th>Guest</th>
-      <th>Conforme</th>
        <th>Approved By</th>
        <th>Action</th>
     </tr>
@@ -62,7 +62,6 @@
       <td>{{$amenity->tower_no}}</td>
       <td>{{$amenity->unit_no}}</td>
       <td>{{$amenity->name_guest}}</td>
-      <td>{{$amenity->conforme}}</td>
       <td>{{$amenity->approved_by}}</td>
       <td>
       <a href="{{url('/amenities/'.$amenity->id)}}"class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a>

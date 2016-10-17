@@ -1,18 +1,24 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
+
 <h1>Add Owner</h1>
-<hr/>
-   <div class="col-md-12">
-                   	
 
-      <center>
-      	<img class="img-responsive img-circle" style="margin-bottom:20px; width:150px; height:150px;" src="{{asset('/img/owners/avatar.png')}}">
-      </center> 
+                   
+<ul class="breadcrumb">
+  <li><a href="{{url('dashboard')}}">Dashboard</a></li>
+  <li><a href="{{url('owners')}}">Owners</a></li>
+  <li class="active">Add owners</li>
+</ul>
+
+        <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="font-weight: 500;"> Add Owner </h3>
+  </div>
+  <div class="panel-body">
+ 
 
 
-
-    {!! Form::model($owner = new \App\Owner,  ['class' => 'form-horizontal',  'url' => 'owners',  'files' => 'true', 'enctype'=>'multipart/form-data', 'novalidate' => 'novalidate', 'id' => 'assetinventoryForm'])!!}
+   {!! Form::model($owner = new \App\Owner,  ['class' => 'form-horizontal',  'url' => 'owners',  'files' => 'true', 'enctype'=>'multipart/form-data', 'novalidate' => 'novalidate', 'id' => 'assetinventoryForm'])!!}
     {!! csrf_field() !!}
                     
         
@@ -26,9 +32,6 @@
 
 {!! Form::close() !!}
 
-
-
-
-        </div>
-        </div><!-- end row -->
+  </div>
+</div>
 @endsection

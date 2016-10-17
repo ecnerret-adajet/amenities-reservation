@@ -24,8 +24,9 @@ class RoomRequest extends Request
     public function rules()
     {
      return [
-            'name' => 'required|min:3',
             'floor_num' => 'integer|required',
+            'no_unit' => 'required',
+            'building_list' => 'required'
         ];
     }
 }

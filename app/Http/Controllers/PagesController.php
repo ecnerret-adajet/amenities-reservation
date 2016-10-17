@@ -9,6 +9,7 @@ use App\Room;
 use App\Tenant;
 use App\Owner;
 use App\Amenity;
+use App\Building;
 use App\Reservation;
 
 class PagesController extends Controller
@@ -18,7 +19,8 @@ class PagesController extends Controller
     	$rooms = Room::all();
     	$tenants = Tenant::all();
     	$amenities = Amenity::all();
+    	$buildings = Building::all();
     	$owners = Owner::all();
-    	return view('dashboard', compact('rooms','owners','tenants','amenities'));
+    	return view('dashboard', compact('rooms','owners','tenants','amenities','buildings'));
     }
 }

@@ -86,6 +86,20 @@ class Amenity extends Model
    		return $this->reservations->lists('id')->all();
    	}
 
+    /* list all building availabilty */
+
+    public function buildings()
+    {
+      return $this->belongsToMany('App\Building')->withTimestamps();
+    }
+
+     public function getBuildingListAttribute()
+     {
+      return $this->buildings->lists('id')->all();
+     }
+
+
+
 
 
 }

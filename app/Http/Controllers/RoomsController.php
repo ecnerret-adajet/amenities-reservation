@@ -13,6 +13,7 @@ use App\Room;
 use App\Tenant;
 use App\User;
 use Carbon\Carbon;
+use App\Building;
 use Image;
 
 class RoomsController extends Controller
@@ -45,7 +46,8 @@ class RoomsController extends Controller
     public function create()
     {
         $owners = Owner::lists('first_name','id');
-        return view('rooms.create', compact('owners'));
+        $buildings = Building::lists('name','id');
+        return view('rooms.create', compact('owners','buildings'));
     }
 
     /**
@@ -58,6 +60,7 @@ class RoomsController extends Controller
     {
         $room = Auth::user()->rooms()->create($request->all());  
         $room->owners()->attach($request->input('owner_list'));
+        $room->buildings()->attach($request->input('building_list'));
 
          return redirect('dashboard');
     }
@@ -82,7 +85,8 @@ class RoomsController extends Controller
     public function edit(Room $room)
     {
        $owners = Owner::lists('first_name', 'id');
-        return view('rooms.edit', compact('owners','room'));
+       $buildings = Building::lists('name','id');
+        return view('rooms.edit', compact('owners','room','buildings'));
     }
 
     /**

@@ -41,8 +41,15 @@ class Tenant extends Model
 
     public function owners()
     {
-        return $this->belongsToMany('App\Owner');
+        return $this->belongsToMany('App\Owner')->withTimestamps();
     }
+
+    public function getOwnerListAttribute()
+    {
+        return $this->owners->lists('id')->all();
+    }
+
+
 
       /*list for amenities */
     public function amenities()

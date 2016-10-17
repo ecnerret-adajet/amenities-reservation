@@ -1,16 +1,20 @@
 @extends('layouts.app')
 @section('content')
 
-<ul class="breadcrumb">
+<h1 class="page-header">Amenities Reciept
+
+ </h1>
+
+<ul class="breadcrumb no-print">
   <li><a href="{{url('dashboard')}}">Dashboard</a></li>
   <li><a href="{{url('amenities')}}">Amenities</a></li>
   <li class="active" ><a href="{{url('amenities/create')}}">Add Amenities</a></li>
 </ul>
 
 
-<div class="panel panel-primary">
+<div class="panel panel-primary print">
   <div class="panel-heading">
-    <h3 class="panel-title">Owner <a href="{{url('amenities')}}" class="btn btn-info"><i class="fa fa-file" aria-hidden="true"></i> All Amenities</a></h3>
+    <h3 class="panel-title">Owner <a href="{{url('amenities')}}" class="btn btn-info no-print"><i class="fa fa-file" aria-hidden="true"></i> All Amenities</a></h3>
   </div>
   <div class="panel-body">
 
@@ -77,7 +81,7 @@
   </tbody>
 </table> 
 
-<div class="row">
+<div class="row no-print">
 <div class="col-md-12">
 		<a href="" class="pull-right btn btn-primary" onclick="myFunction()"><i class="fa fa-file"></i>&nbsp;Print Reciept</a>
 </div>

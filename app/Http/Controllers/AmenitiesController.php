@@ -15,6 +15,7 @@ use App\Owner;
 use App\Tenant;
 use App\User;
 use App\Reservation;
+use App\Building;
 
 class AmenitiesController extends Controller
 {
@@ -44,7 +45,10 @@ class AmenitiesController extends Controller
     {
         $reservations = Reservation::lists('name','id');
         $owners = Owner::lists('first_name','id');
-        return view('amenities.create', compact('reservations','owners'));
+        $buildings = Building::lists('name','id');
+        return view('amenities.create', compact('reservations',
+            'buildings',
+            'owners'));
     }
 
     /**
@@ -58,8 +62,8 @@ class AmenitiesController extends Controller
         $amenity = Auth::user()->amenities()->create($request->all());
 
         $amenity->reservations()->attach((!$request->input('reservation_list') ? [] : $request->input('reservation_list')));
-
         $amenity->owners()->attach((!$request->input('owner_list') ? [] : $request->input('owner_list')));
+        $amenity->buildings()->attach((!$request->input('building_list') ? [] : $request->input('building_list')));
 
         return redirect('dashboard');
     }

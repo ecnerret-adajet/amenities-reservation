@@ -85,7 +85,7 @@
                         {!! Form::label('phone_num', 'Phone number:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::number('phone_num', null,  ['class' => 'form-control']) !!}     
+                        {!! Form::text('phone_num', null,  ['class' => 'form-control', "data-inputmask" => "'mask': '+63999-9999-999'", 'data-mask' ]) !!} 
 
                         @if ($errors->has('phone_num'))
                         <span class="help-block">
@@ -101,7 +101,7 @@
                         {!! Form::label('telephone_num', 'Telephone number:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::number('telephone_num', null,  ['class' => 'form-control']) !!}     
+                        {!! Form::text('telephone_num', null,  ['class' => 'form-control', "data-inputmask" => "'mask': '9999-999'", 'data-mask']) !!}   
 
                         @if ($errors->has('telephone_num'))
                         <span class="help-block">
@@ -117,20 +117,7 @@
                         <hr/>
 
 
-                        <div class="form-group">
-                        <label class="col-md-4 control-label"> 
-                        {!! Form::label('tenant_list', 'Add Tenant:')  !!}
-                        </label>
-                        <div class="col-md-6">
-                        {!! Form::select('tenant_list',  $tenants, null,  ['class' => 'form-control', 'placeholder' => 'Select a Tenant']) !!}     
-
-                        @if ($errors->has('tenant_list'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('tenant_list') }}</strong>
-                        </span>
-                        @endif
-                        </div>
-                        </div>
+        
 
 
                         

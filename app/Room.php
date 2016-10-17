@@ -27,10 +27,22 @@ class Room extends Model
     {
       return $this->belongsToMany('App\Owner')->withTimestamps();
     }
-    
+
     public function getOwnerListAttribute()
     {
         return $this->owners->lists('id')->all();
+    }
+
+    /* list all builidng name */
+
+    public function buildings()
+    {
+        return $this->belongsToMany('App\Building')->withTimestamps();
+    }
+
+    public function getBuildingListAttribute()
+    {
+        return $this->buildings->lists('id')->all();
     }
 
     

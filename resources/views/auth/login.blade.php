@@ -42,7 +42,7 @@
 <div class="container" style="margin-top: 50px; margin-bottom: 20px;">
     <div class="row text-center">
         <div class="col-md-6 col-md-offset-3">
-             <span class="logo-front"> <i class="icon ion-lock-combination"></i> Access System</span>
+             <span class="logo-front"> <i class="ion-cube"></i> Central Condominium</span>
         </div>
     </div>
 </div>

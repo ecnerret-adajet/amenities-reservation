@@ -42,7 +42,8 @@ class TenantsController extends Controller
      */
     public function create()
     {
-        return view('tenants.create');
+        $owners = Owner::lists('first_name','id');
+        return view('tenants.create', compact('owners'));
     }
 
     /**
@@ -54,10 +55,15 @@ class TenantsController extends Controller
     public function store(TenantRequest $request)
     {
         $tenant = Auth::user()->tenants()->create($request->all());  
+
+        if($request->has('owner_list')){
+            $tenant->owners()->attach($request->input('owner_list'));
+        }
+
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = time() . '.' .$avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300,300)->save( public_path('/img/tenants/' . $filename ) ); 
+            Image::make($avatar)->resize(300,300)->save( public_path('../img/tenants/' . $filename ) ); 
             $tenant->avatar = $filename;
             $tenant->save();
         }

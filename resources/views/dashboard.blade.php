@@ -1,13 +1,20 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="row">
-<div class="col-md-12">
 
-<h1>Dashboard</h1>
+<h1> Dashboard </h1>
+
+<ul class="breadcrumb">
+  <li class="active">Dashboard</li>
+</ul>
 
    <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
+
+
+ 
+
+
+            <div class="col-xs-3">
               <div class="info-box">
                 <span class="info-box-icon bg-aqua"><i class="ion-ios-home-outline"></i></span>
                 <div class="info-box-content">
@@ -16,7 +23,7 @@
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-xs-3">
               <div class="info-box">
                 <span class="info-box-icon bg-green"><i class="ion-ios-locked-outline"></i></span>
                 <div class="info-box-content">
@@ -25,7 +32,7 @@
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-xs-3">
               <div class="info-box">
                 <span class="info-box-icon bg-yellow"><i class="ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
@@ -34,7 +41,7 @@
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class=" col-xs-3">
               <div class="info-box">
                 <span class="info-box-icon bg-red"><i class="ion-ios-basketball-outline"></i></span>
                 <div class="info-box-content">
@@ -43,19 +50,27 @@
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
-          </div><!-- /.row -->
 
-         
+          
 
-   <table  id="room"  class="dt-responsive nowrap display table-responsive table-hover table" width="100%">
+      </div><!-- /.row -->
+
+
+                    <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="font-weight: 500;"> Status </h3>
+  </div>
+  <div class="panel-body">
+
+
+  <table  id="room"  class="dt-responsive nowrap display table-bordered table-responsive table-hover table" width="100%">
   <thead>
     <tr>
       <th></th>
       <th>Owners Name</th>
-      <th>Rodadasom name</th>
+      <th>Building Name</th>
       <th>Floor #</th>
       <th>Unit #</th>
-      <th>Building #</th>
        <th>Action</th>
     </tr>
   </thead>
@@ -64,10 +79,9 @@
       <tr>
       <th></th>
       <th>Owners Name</th>
-      <th>fasfasf name</th>
+      <th>Building Name</th>
       <th>Floor #</th>
       <th>Unit #</th>
-      <th>Building #</th>
       <th>Action</th>
     </tr>
   </tfoot> 
@@ -76,7 +90,7 @@
     <tr>
     <td>
     @foreach($room->owners as $owner)
-    <img class="img-resposive img-circle" style="width: 50px; height:auto; " src="{{asset('/img/owners/'.$owner->avatar)}}">
+    <img class="img-resposive img-circle" style="width: 50px; height:auto; " src="{{asset('img/owners/'.$owner->avatar)}}">
     @endforeach
     </td>
     <td>
@@ -84,13 +98,18 @@
     {{$owner->first_name}} {{ $owner->last_name == null ? 'No owner' : $owner->last_name }}
     @endforeach
     </td>
-      <td>{{$room->name}}</td>
+      <td>
+        @foreach($room->buildings as $building)
+          {{$building->name}}
+        @endforeach
+      </td>
       <td>{{$room->floor_num}}</td>
       <td>{{$room->no_unit}}</td>
-      <td>{{$room->building_num}}</td>
       <td>
-      <a href="{{url('/rooms/'.$room->id.'/edit')}}">
-      <i class="action ion-ios-compose-outline"></i>
+      @role('Administrator')
+      <a class="btn btn-primary" href="{{url('/rooms/'.$room->id.'/edit')}}">
+      @endrole
+      Edit 
       </a>
       </td>
     </tr>
@@ -98,6 +117,13 @@
   </tbody>
 </table> 
 
+
+  </div>
+</div>
+
+         
+
+ 
        
 
 

@@ -26,7 +26,7 @@ class TenantRequest extends Request
            return [
             'first_name' => 'required|min:3',
             'middle_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
+            'owner_list' => 'required',
         ];
     }
 }

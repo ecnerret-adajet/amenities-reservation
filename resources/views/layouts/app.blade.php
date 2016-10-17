@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>accesssystem</title>
+    <title>Central Condominium</title>
 
     <!-- Fonts  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min')}}" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
 
@@ -18,9 +18,10 @@
 
      <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
      <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-     <link rel="stylesheet" href="{{asset('css/simple-sidebar.css')}}">
-     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/print.css')}}" rel="stylesheet" media="print">
+      <link rel="stylesheet" href="{{asset('css/simple-sidebar.css')}}">
+     <link href="{{asset('css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
 
 
         <!-- select 2 plugin -->
@@ -49,59 +50,105 @@
     </style>
 </head>
 
+<body>
+
+     @if (Auth::check())
+                   
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0 ! important">
+        <div class="container">
+            <div class="navbar-header">
+
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Branding Image -->
+                <a class="navbar-brand brand-hr" href="{{ url('/home') }}">
+                   <i class="ion-cube"></i> {{ config('app.name', 'Central Condominium') }}
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+
+                   <form class="navbar-form navbar-left" role="search">
+       <div class="input-group">
+   
+    <input type="text" class="form-control">
+     <span class="input-group-addon"><i class="ion-android-search"></i></span>
+  </div>
+      </form>
+               
+  
+           
+  
+
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                        <li >
+                            <a href="{{ url('/logout') }}"  aria-expanded="false">
+                             <i class="fa fa-sign-out" aria-hidden="true"></i>  Logout 
+                            </a>
+
+                        </li>
+                   
+                </ul>
 
 
-  <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand" style="background-color: #22313F;">
-                    <a href="{{url('/dashboard')}}">
-                    <i class="ion-lock-combination"></i>    Access System
-                    </a>
-                </li>
-                <li>
-                    <a href="{{url('/dashboard')}}">Dashboard</a>
-                </li>
-                <li>
-                    <a href="{{url('/rooms/create')}}">Rooms Management</a>
-                </li>
-                <li>
-                    <a href="{{url('/amenities')}}">Amenities</a>
-                </li>
-                <li>
-                    <a href="{{url('/owners')}}">Owners</a>
-                </li>
-                <li>
-                    <a href="{{url('/tenants/create')}}">Tenants</a>
-                </li>
-                <li>
-                    <a href="{{url('/reports')}}">Report</a>
-                </li>
-            
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        
-
-                    @yield('content')
-
-
-                    </div>
-                </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
+    </nav>
+
+    <div class="row text-uppercase" style="background: #2980b9; margin: 0; padding: 20px;">
+    <div class="container">
+
+ <ul class="nav nav-pills">
+  <li class="active"><a class="nav-style" href="{{url('dashboard')}}"><i class="ion-speedometer"></i> Dashboard</a></li>
+
+  @role('Administrator')
+  <li><a class="nav-style" href="{{url('rooms/create')}}"><i class="ion-key"></i> Rooms</a></li>
+  <li><a class="nav-style" href="{{url('amenities')}}"><i class="ion-ios-basketball-outline"></i> Amenities</a></li>
+  <li><a class="nav-style" href="{{url('owners')}}"><i class="ion-unlocked"></i> Owners</a></li>
+  <li><a class="nav-style" href="{{url('tenants/create')}}"><i class="ion-unlocked"></i> Tenants</a></li>
+  <li><a class="nav-style" href="{{url('users')}}"><i class="ion-android-contact"></i> Users</a></li>
+  <li><a class="nav-style" href="{{url('reports')}}"><i class="ion-android-options"></i> Report</a></li>
+  @endrole
+
+
+    <li class="pull-right">
+     <h5 class="nav-style">   Hi  <span style="font-weight: 700;">{{ Auth::user()->name }}</span> </h5>
+    </li>
+
+</ul>
+
 
     </div>
-    <!-- /#wrapper -->
+    </div>
+
+<div class="container">
+<div class="row">
+
+
+ @endif
+<div class="col-md-12">
+
+
+
+    @yield('content')
+
+
+
+</div><!-- end col-md-9 -->
+
+
+
+
+</div>
 
     <!-- jQuery -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
@@ -132,12 +179,33 @@
       });
     </script>
 
+        <script>
+     $(document).ready(function() {
+    $('#report').DataTable( {
+        dom: "<'row table-style-custom'<'col-sm-6'><'col-sm-6 text-right'B>>"+"<'row'<'col-sm-6'l><'col-sm-6'f>>R" +
+    "<'row'<'col-sm-12'tr>>" +
+    "<'row'<'col-sm-5'i><'col-sm-7'p>>", 
+        buttons: [
+          
+            { extend: 'excelHtml5', className: 'btn-sm btn-success text-uppercase' },
+            { extend: 'csvHtml5', className: 'btn-sm btn-success text-uppercase' },
+            { extend: 'pdfHtml5', className: 'btn-sm btn-success text-uppercase' }
+        ]
+    } );
+
+} );
+    </script>
+
     <!-- select 2 plugin -->
     <script src="{{ asset('/js/select2.min.js') }}"></script>
 
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
+     <!-- InputMask -->
+    <script src="{{asset('plugins/input-mask/jquery.inputmask.js')}}" type="text/javascript"></script>
+    <script src="{{asset('plugins/input-mask/jquery.inputmask.extensions.js')}}" type="text/javascript"></script>
 
     <!-- Menu Toggle Script -->
     <script>
@@ -147,11 +215,29 @@
     });
     </script>
 
+      <!-- select2 plugin -->
+    <script>
+      $(".select2").select2({
+       placeholder: "Select an number",
+       allowClear: true
+        });
+    </script>
+
         <script>
 function myFunction() {
     window.print();
 }
 </script>
+
+  <script type="text/javascript">
+      $(function () {
+ 
+        $("[data-mask]").inputmask();
+
+       
+      });
+    </script>
+
 
 </body>
 

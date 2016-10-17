@@ -1,6 +1,20 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
+
+<h1>Show Owner</h1>
+
+<ul class="breadcrumb">
+  <li><a href="{{url('dashboard')}}">Dashboard</a></li>
+  <li><a href="{{url('owners')}}">Owners</a></li>
+  <li class="active" >Show Owner</li>
+</ul>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Owner Information</h3>
+  </div>
+  <div class="panel-body">
+  <div class="row">
 
 <div class="col-md-3">
                   
@@ -33,7 +47,7 @@
                        </div>
 
 
-						<div class="col-md-2 hidden-xs hidden-sm">
+            <div class="col-md-2 hidden-xs hidden-sm">
                     
                              {!! QrCode::size(150)->generate('http://192.168.1.23/accesssystem/public/'.Request::path()) !!}
                            
@@ -67,4 +81,7 @@
 
 
 </div>
+  </div>
+</div>
+
 @endsection
