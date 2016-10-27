@@ -153,13 +153,7 @@
     <!-- jQuery -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
 
-    <!-- filesystem -->
-     <script src="{{asset('/js/bootstrap-filestyle.min.js')}}" type="text/javascript"></script>
-       <script>
-       $(":file").filestyle({size: "sm", buttonName: "btn-primary", buttonBefore: true});
-     </script>
-
-    <!-- datatables   -->  
+        <!-- datatables   -->  
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('js/responsive.bootstrap.min.js') }}"></script>
@@ -172,6 +166,14 @@
     <script src="{{ asset('js/pdfmake.min.js') }}"></script>
     <script src="{{ asset('js/vfs_fonts.js') }}"></script>
     <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+
+    <!-- filesystem -->
+     <script src="{{asset('/js/bootstrap-filestyle.min.js')}}" type="text/javascript"></script>
+       <script>
+       $(":file").filestyle({size: "sm", buttonName: "btn-primary", buttonBefore: true});
+     </script>
+
+
 
     <script>    
     $(document).ready(function() {
