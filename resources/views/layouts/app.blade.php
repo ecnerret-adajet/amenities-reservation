@@ -167,6 +167,9 @@
     <script src="{{ asset('js/vfs_fonts.js') }}"></script>
     <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
 
+    <!-- flash message -->
+    @include('flashy::message')
+
     <!-- filesystem -->
      <script src="{{asset('/js/bootstrap-filestyle.min.js')}}" type="text/javascript"></script>
        <script>

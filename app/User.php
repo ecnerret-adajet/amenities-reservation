@@ -54,4 +54,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Reservation');
     }
 
+    public function grants()
+    {
+        return $this->hasMany('App\Grant');
+    }
+
 }

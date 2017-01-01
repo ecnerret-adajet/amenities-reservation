@@ -41,4 +41,6 @@ Route::resource('amenities','AmenitiesController');
 Route::get('reports','HomeController@reports');
 Route::get('/report', 'HomeController@getreport');
 
+Route::resource('/grants','GrantsController');
+
 });

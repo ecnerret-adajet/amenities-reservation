@@ -33,6 +33,7 @@ class RouteServiceProvider extends ServiceProvider
         $router->model('rooms','App\Room');
         $router->model('amenities','App\Amenity');
         $router->model('reservations','App\Reservation');
+        $router->model('grants','App\Grant');
       
     }
 

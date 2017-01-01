@@ -56,6 +56,17 @@
                            
                            <a href="{{url('/qr-img/'.$owner->first_name.'.png')}}" class="btn btn-block btn-primary" download>Download Image</a>
 
+
+                           @role(['Personnel','Administrator'])
+                           {!! Form::model($grant = new \App\Grant,  ['class' => 'form-horizontal',  'url' => 'grants', 'enctype'=>'multipart/form-data'])!!}
+                            {!! csrf_field() !!}
+
+                           <button class="btn btn-block btn-primary" type="submit" style="margin-top: 20px;">Grant Access</button>
+
+                           {!! Form::close() !!}
+
+
+                           @endrole
                            
                            
                        </div>
