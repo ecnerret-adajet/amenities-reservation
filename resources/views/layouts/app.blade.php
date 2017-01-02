@@ -117,6 +117,7 @@
   <li><a class="nav-style" href="{{url('tenants/create')}}"><i class="ion-unlocked"></i> Tenants</a></li>
   <li><a class="nav-style" href="{{url('users')}}"><i class="ion-android-contact"></i> Users</a></li>
   <li><a class="nav-style" href="{{url('reports')}}"><i class="ion-android-options"></i> Report</a></li>
+  <li><a class="nav-style" href="{{url('grants')}}"><i class="ion-key"></i> Acess Log</a></li>
   @endrole
 
 

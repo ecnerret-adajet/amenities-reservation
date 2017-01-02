@@ -15,10 +15,15 @@ class CreateGrantsTable extends Migration
         Schema::create('grants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('owner_id')->unsigned();
             $table->boolean('confirm')->default(0);
+
             $table->timestamp('confirm_date');
+
             $table->foreign('user_id')->references('id')
                     ->on('users')->onDelete('cascade');
+            $table->foreign('owner_id')->references('id')
+                    ->on('owners')->onDelete('cascade');
             $table->timestamps();
         });
     }

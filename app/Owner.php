@@ -30,6 +30,11 @@ class Owner extends Model
         return $this->belongsTo('App\User');
     }
 
+    /* list grant user owner */
+    public function grants(){
+        return $this->hasMany('App\Grant');
+    }
+
     /* set birthdate */
 
      public function setBirthdayAttribute($date)

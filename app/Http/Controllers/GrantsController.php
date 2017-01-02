@@ -9,6 +9,8 @@ use App\Http\Requests;
 use Carbon\Carbon;
 use App\Grant;
 use App\User;
+use App\Owner;
+use Flashy;
 
 
 class GrantsController extends Controller
@@ -20,7 +22,8 @@ class GrantsController extends Controller
      */
     public function index()
     {
-        //
+        $grants = Grant::all();
+        return view('grants.index', compact('grants'));
     }
 
     /**
@@ -39,14 +42,16 @@ class GrantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
         $grant = New Grant;
         $grant->confirm = 1;
         $grant->confirm_date = Carbon::now();
+        $grant->owner()->associate($id);
         $grant->user()->associate(Auth::user());
         $grant->save();
 
+        flashy()->success('Grant access succesfully');
         return redirect('owners');
     }
 

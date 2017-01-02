@@ -25,5 +25,10 @@ class Grant extends Model
     	return $this->belongsTo('App\User');
     }
 
+    public function owner()
+    {
+        return $this->belongsTo('App\Owner');
+    }
+
 
 }
