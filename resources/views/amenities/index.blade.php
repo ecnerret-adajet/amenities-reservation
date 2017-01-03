@@ -17,7 +17,6 @@
   <table  id="room"  class="dt-responsive nowrap display table-responsive table-bordered table-hover table" width="100%">
   <thead>
     <tr>
-              <th></th>
       <th>Reservation</th>
       <th>Name</th>
       <th>Tower #</th>
@@ -31,7 +30,6 @@
     <tfoot>
     
       <tr>
-        <th></th>
       <th>Reservation</th>
       <th>Name</th>
       <th>Tower #</th>
@@ -47,7 +45,6 @@
   @foreach($amenities as $amenity)
     <tr>
 
-    <td></td>
 
     <td>
     @foreach($amenity->reservations as $reservation)

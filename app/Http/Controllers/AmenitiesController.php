@@ -45,7 +45,7 @@ class AmenitiesController extends Controller
     {
         $reservations = Reservation::lists('name','id');
         $owners = Owner::lists('first_name','id');
-        $buildings = Building::lists('name','id');
+        // $buildings = Building::lists('name','id');
         return view('amenities.create', compact('reservations',
             'buildings',
             'owners'));
@@ -63,7 +63,7 @@ class AmenitiesController extends Controller
 
         $amenity->reservations()->attach((!$request->input('reservation_list') ? [] : $request->input('reservation_list')));
         $amenity->owners()->attach((!$request->input('owner_list') ? [] : $request->input('owner_list')));
-        $amenity->buildings()->attach((!$request->input('building_list') ? [] : $request->input('building_list')));
+        // $amenity->buildings()->attach((!$request->input('building_list') ? [] : $request->input('building_list')));
 
         return redirect('dashboard');
     }

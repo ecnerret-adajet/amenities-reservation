@@ -1,3 +1,23 @@
+                             <div class="form-group{{ $errors->has('owner_list') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label"> 
+                        {!! Form::label('owner_list', 'Assign Owner:')  !!} 
+                        </label>
+                        <div class="col-md-6">
+                        {!! Form::select('owner_list[]', $owners, null, ['class' => 'form-control', 'placeholder' => '-- Select an Owner --']) !!}
+
+                        @if ($errors->has('owner_list'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('owner_list') }}</strong>
+                        </span>
+                        @endif
+                        </div>
+                        </div>
+
+
+                        <hr/>
+
+
+
                         <div class="form-group{{ $errors->has('building_list') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label"> 
                         {!! Form::label('building_list', 'Building Name:')  !!} 
@@ -58,20 +78,7 @@
 
                         <hr/>
 
-                        <div class="form-group{{ $errors->has('owner_list') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label"> 
-                        {!! Form::label('owner_list', 'Assign Owner:')  !!} 
-                        </label>
-                        <div class="col-md-6">
-                        {!! Form::select('owner_list[]', $owners, null, ['class' => 'form-control', 'placeholder' => '-- Select an Owner --']) !!}
-
-                        @if ($errors->has('owner_list'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('owner_list') }}</strong>
-                        </span>
-                        @endif
-                        </div>
-                        </div>
+                   
                         
                         
                        <div class="col-md-3 col-md-offset-4">

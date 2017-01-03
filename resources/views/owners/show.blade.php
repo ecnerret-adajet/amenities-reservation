@@ -47,7 +47,7 @@
                        </div>
 
 
-            <div class="col-md-2 hidden-xs hidden-sm">
+            <div class="col-md-2">
                     
                              {!! QrCode::size(150)->generate('http://192.168.1.23/accesssystem/public/'.Request::path()) !!}
                            

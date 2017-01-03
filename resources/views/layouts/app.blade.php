@@ -90,7 +90,21 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                        <li >
+                    
+
+                       <li class="hidden-md hidden-lg"><a  href="{{url('dashboard')}}"> 
+                       Dashboard</a>
+                       </li>
+
+                        <li class="hidden-md hidden-lg"><a href="{{url('rooms/create')}}"> Rooms</a></li>
+                         <li class="hidden-md hidden-lg"><a href="{{url('amenities')}}"> Amenities</a></li>
+                        <li class="hidden-md hidden-lg"><a href="{{url('owners')}}"> Owners</a></li>
+                        <li class="hidden-md hidden-lg"><a href="{{url('tenants/create')}}"> Tenants</a></li>
+                        <li class="hidden-md hidden-lg"><a href="{{url('users')}}"> Users</a></li>
+                         <li class="hidden-md hidden-lg"><a href="{{url('reports')}}"> Report</a></li>
+                         <li class="hidden-md hidden-lg"><a href="{{url('grants')}}"> Acess Log</a></li>
+
+                             <li >
                             <a href="{{ url('/logout') }}"  aria-expanded="false">
                              <i class="fa fa-sign-out" aria-hidden="true"></i>  Logout 
                             </a>
@@ -108,16 +122,16 @@
     <div class="container">
 
  <ul class="nav nav-pills">
-  <li class="active"><a class="nav-style" href="{{url('dashboard')}}"><i class="ion-speedometer"></i> Dashboard</a></li>
+  <li class="active hidden-sm hidden-xs"><a class="nav-style" href="{{url('dashboard')}}"><i class="ion-speedometer"></i> Dashboard</a></li>
 
   @role('Administrator')
-  <li><a class="nav-style" href="{{url('rooms/create')}}"><i class="ion-key"></i> Rooms</a></li>
-  <li><a class="nav-style" href="{{url('amenities')}}"><i class="ion-ios-basketball-outline"></i> Amenities</a></li>
-  <li><a class="nav-style" href="{{url('owners')}}"><i class="ion-unlocked"></i> Owners</a></li>
-  <li><a class="nav-style" href="{{url('tenants/create')}}"><i class="ion-unlocked"></i> Tenants</a></li>
-  <li><a class="nav-style" href="{{url('users')}}"><i class="ion-android-contact"></i> Users</a></li>
-  <li><a class="nav-style" href="{{url('reports')}}"><i class="ion-android-options"></i> Report</a></li>
-  <li><a class="nav-style" href="{{url('grants')}}"><i class="ion-key"></i> Acess Log</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('rooms/create')}}"><i class="ion-key"></i> Rooms</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('amenities')}}"><i class="ion-ios-basketball-outline"></i> Amenities</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('owners')}}"><i class="ion-unlocked"></i> Owners</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('tenants/create')}}"><i class="ion-unlocked"></i> Tenants</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('users')}}"><i class="ion-android-contact"></i> Users</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('reports')}}"><i class="ion-android-options"></i> Report</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('grants')}}"><i class="ion-key"></i> Acess Log</a></li>
   @endrole
 
 

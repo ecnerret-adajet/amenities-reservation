@@ -26,8 +26,6 @@ class AmenityRequest extends Request
          return [
             'name_occupants' => 'required',
             'owner_list' => 'required',
-            'building_list' => 'required',
-            'no_unit' => 'required',
             'reservation_list' => 'required'
         ];
     }

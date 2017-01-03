@@ -4,7 +4,7 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title" style="font-weight: 500;"> Owners <a href="{{url('owners/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Owner</a></h3>
+    <h3 class="panel-title" style="font-weight: 500;"> Owners <a href="{{url('owners/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Owner</a><a href="{{url('tenants/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Tenant</a></h3>
   </div>
   <div class="panel-body">
  
@@ -46,7 +46,9 @@
         </td>
         <td>{{$owner->first_name}} {{$owner->middle_name}} {{$owner->last_name}}</td>
         <td>{{$owner->age}}</td>
-        <td>{{$owner->birthday}}</td>
+        <td>
+          {{ date('F d, Y', strtotime($owner->birthday)) }}
+        </td>
         <td>{{$owner->phone_num}}</td>
         <td>{{$owner->telephone_num}}</td>
         <td>
