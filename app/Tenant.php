@@ -27,6 +27,11 @@ class Tenant extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' .$this->last_name;
+    }
+
     public function setBirthdayAttribute($date)
     {
         $this->attributes['birthday'] = Carbon::createFromFormat('Y-m-d', $date);

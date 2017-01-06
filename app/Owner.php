@@ -24,6 +24,11 @@ class Owner extends Model
 
 
     /* user belongs to department */
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
     
     public function user()
     {

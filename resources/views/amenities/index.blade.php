@@ -61,7 +61,14 @@
       <td>{{$amenity->name_guest}}</td>
       <td>{{$amenity->approved_by}}</td>
       <td>
-      <a href="{{url('/amenities/'.$amenity->id)}}"class="btn btn-primary"><i class="fa fa-eye" aria-hidden="true"></i> View Details</a>
+              <div class="btn-group">
+            <a href="#" class="btn btn-primary">Option</a>
+            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{url('/amenities/'.$amenity->id)}}">Details</a></li>
+              <li><a href="" data-toggle="modal" data-target=".bs-delete{{$amenity->id}}-modal-lg">Delete</a></li>
+            </ul>
+          </div>   
       </td>
     </tr>
      @endforeach
@@ -72,7 +79,48 @@
 </div>
 
 
+@foreach($amenities as $amenity)
 
+<!-- delete modal amenity information  -->
+<div class="modal fade bs-delete{{$amenity->id}}-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <span class="modal-title">Delete a amenity</span>
+      </div>
+      <div class="modal-body">
+              <div class="row">
+        <div class="col-md-12">
+                <div class="panel-body"> 
+
+                   <h4>  
+            Are you sure you want to delete this amenity ?
+        </h4>
+        <em>
+        <small>This will affect other data that belongs to this amenity</small>
+        </em>
+
+                    
+                </div>
+        </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+    {{ Form::open(['method' => 'DELETE', 'route' => ['amenities.destroy', $amenity->id]]) }}
+    {!! csrf_field() !!}
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {!! Form::close() !!}
+      </div>
+    </div><!-- /.modal-content -->  
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+@endforeach
 
 
 @endsection

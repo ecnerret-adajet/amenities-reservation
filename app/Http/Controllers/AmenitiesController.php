@@ -118,6 +118,7 @@ class AmenitiesController extends Controller
     public function destroy(Amenity $amenity)
     {
         $amenity->delete();
-        return redirect('home');
+        flashy()->success('Successfully Deleted a amenities');
+        return redirect('amenities');
     }
 }

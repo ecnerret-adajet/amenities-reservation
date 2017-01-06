@@ -14,6 +14,7 @@ use App\Tenant;
 use App\User;
 use Image;
 use Carbon\Carbon;
+use Flashy;
 
 class TenantsController extends Controller
 {
@@ -117,6 +118,7 @@ class TenantsController extends Controller
     public function destroy(Tenant $tenant)
     {
         $tenant->delete();
-        return redirect('home');
+        flashy()->success('Successfully deleted a tenant');
+        return redirect('tenants');
     }
 }
