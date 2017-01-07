@@ -14,6 +14,15 @@ class CreateFloorsTable extends Migration
     {
         Schema::create('floors', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('floor_room', function(Blueprint $table){
+            $table->integer('floor_id')->unsigned();
+            $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');
+            $table->integer('room_id')->unsigned();
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +34,7 @@ class CreateFloorsTable extends Migration
      */
     public function down()
     {
+        Schema::drop('floor_unit');
         Schema::drop('floors');
     }
 }

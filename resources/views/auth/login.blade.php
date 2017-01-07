@@ -19,14 +19,17 @@
      <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
      <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-    <style>s
+    <style>
         body {
             font-family: 'Lato';
+            background: url('../img/assets/bg.jpg') no-repeat;
+            background-size: cover;
         }
 
         .fa-btn {
             margin-right: 6px;
         }
+
     </style>
   
 
@@ -42,7 +45,7 @@
 <div class="container" style="margin-top: 50px; margin-bottom: 20px;">
     <div class="row text-center">
         <div class="col-md-6 col-md-offset-3">
-             <span class="logo-front"> <i class="ion-cube"></i> Central Condominium</span>
+            <img class="img-responsive" style="display: inline-block; width: 150px; height: auto;" src="{{asset('img/assets/logo.png')}}"></span>
         </div>
     </div>
 </div>

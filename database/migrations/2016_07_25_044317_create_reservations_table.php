@@ -30,10 +30,10 @@ class CreateReservationsTable extends Migration
 
          Schema::create('amenity_reservation', function (Blueprint $table) {
             $table->integer('amenity_id')->unsigned()->index();
-            $table->foreign('amenity_id')->references('id')->on('amenities')->onDelte('cascade');
+            $table->foreign('amenity_id')->references('id')->on('amenities')->onDelete('cascade');
 
             $table->integer('reservation_id')->unsigned()->index();
-            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelte('cascade');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
 
             $table->timestamps();
 

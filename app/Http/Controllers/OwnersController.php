@@ -72,7 +72,7 @@ class OwnersController extends Controller
         }
 
 
-         return redirect('dashboard');
+         return redirect('owners');
     }
 
     /**

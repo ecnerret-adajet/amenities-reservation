@@ -27,6 +27,7 @@ class AmenityRequest extends Request
             'name_occupants' => 'required',
             'owner_list' => 'required',
             'reservation_list' => 'required'
+            'date_approved' => 'required|date'
         ];
     }
 }

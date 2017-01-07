@@ -68,7 +68,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand brand-hr" href="{{ url('/home') }}">
-                   <i class="ion-cube"></i> {{ config('app.name', 'Central Condominium') }}
+                   <img class="img-responsive" style="display: inline-block; width: 30px; height: auto" src="{{asset('img/assets/logo.png')}}"> {{ config('app.name', 'Central Condominium') }}
                 </a>
             </div>
 
@@ -99,7 +99,7 @@
                         <li class="hidden-md hidden-lg"><a href="{{url('rooms/create')}}"> Rooms</a></li>
                          <li class="hidden-md hidden-lg"><a href="{{url('amenities')}}"> Amenities</a></li>
                         <li class="hidden-md hidden-lg"><a href="{{url('owners')}}"> Owners</a></li>
-                        <li class="hidden-md hidden-lg"><a href="{{url('tenants/create')}}"> Tenants</a></li>
+                        <li class="hidden-md hidden-lg"><a href="{{url('tenants')}}"> Tenants</a></li>
                         <li class="hidden-md hidden-lg"><a href="{{url('users')}}"> Users</a></li>
                          <li class="hidden-md hidden-lg"><a href="{{url('reports')}}"> Report</a></li>
                          <li class="hidden-md hidden-lg"><a href="{{url('grants')}}"> Acess Log</a></li>
@@ -128,7 +128,7 @@
   <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('rooms/create')}}"><i class="ion-key"></i> Rooms</a></li>
   <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('amenities')}}"><i class="ion-ios-basketball-outline"></i> Amenities</a></li>
   <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('owners')}}"><i class="ion-unlocked"></i> Owners</a></li>
-  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('tenants/create')}}"><i class="ion-unlocked"></i> Tenants</a></li>
+  <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('tenants')}}"><i class="ion-unlocked"></i> Tenants</a></li>
   <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('users')}}"><i class="ion-android-contact"></i> Users</a></li>
   <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('reports')}}"><i class="ion-android-options"></i> Report</a></li>
   <li class="hidden-sm hidden-xs"><a class="nav-style" href="{{url('grants')}}"><i class="ion-key"></i> Acess Log</a></li>
