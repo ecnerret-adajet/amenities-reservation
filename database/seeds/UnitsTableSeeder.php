@@ -11,10 +11,10 @@ class UnitsTableSeeder extends Seeder
      */
     public function run()
     {
-          DB::table('units')->insert([
-          for($i = 1; $i <= 170; $i++ ){
-          	array('id' => $i, 'name'=> $i),
-          }
-        ]);
+         for($i = 1; $i <= 170; $i++ ){
+            DB::table('units')->insert([
+              'unit_no' => $i
+            ]);
+         }
     }
 }

@@ -17,6 +17,7 @@ use App\Building;
 use Image;
 use App\Floor;
 use App\Unit;
+use Flashy;
 
 class RoomsController extends Controller
 {
@@ -49,8 +50,8 @@ class RoomsController extends Controller
     {
         $owners = Owner::pluck('first_name','id');
         $buildings = Building::pluck('name','id');
-        $floors = Floor::pluck('name','id');
-        $units = Unit::pluck('unit_no','id');
+        $floors = Floor::where('availability',0)->pluck('name','id');
+        $units = Unit::where('availability',0)->pluck('unit_no','id');
         return view('rooms.create', compact('owners','buildings','floors','units'));
     }
 
@@ -68,6 +69,22 @@ class RoomsController extends Controller
         $room->floors()->attach($request->input('floor_list'));
         $room->units()->attach($request->input('units_list'));
 
+        $tracks = Track::all();
+        foreach($tracks as $track){
+            foreach($track->trucks->reverse()->take(1) as $truck){
+                    $id = $truck->id;
+            }
+       }
+
+        $floor = Floor::findOrFail($id);
+        $floor->availability = 1;
+        $floor->save();
+
+        $unit = Unit::findOrFail($id);
+        $unit->availability = 1;
+        $unit->save();
+
+        flashy()->success('Successfully added a room!');
          return redirect('dashboard');
     }
 

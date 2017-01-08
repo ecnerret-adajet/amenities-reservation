@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Floor extends Model
 {
     protected $fillable = [
-    	'name'
+    	'name',
+    	'availability'
     ];
 
 	public function rooms()

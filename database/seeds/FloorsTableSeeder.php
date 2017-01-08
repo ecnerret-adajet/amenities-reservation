@@ -11,11 +11,10 @@ class FloorsTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('floors')->insert([
-
-          for($i = 1; $i <= 17; $i++ ){
-          	array('id' => $i, 'name'=> $i),
-          }
-        ]);
+         for($i = 1; $i <= 17; $i++ ){
+            DB::table('floors')->insert([
+              'name' => $i
+            ]);
+         }         
     }
 }
