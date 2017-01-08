@@ -16,9 +16,6 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
-            $table->integer('floor_num');
-            $table->integer('no_unit');
-            $table->integer('building_num');
             
             $table->foreign('user_id')
                 ->references('id')

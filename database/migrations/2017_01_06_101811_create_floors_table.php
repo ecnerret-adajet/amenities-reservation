@@ -34,7 +34,7 @@ class CreateFloorsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('floor_unit');
+        Schema::drop('floor_room');
         Schema::drop('floors');
     }
 }

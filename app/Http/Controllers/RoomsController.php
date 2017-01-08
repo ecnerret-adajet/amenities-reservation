@@ -15,6 +15,8 @@ use App\User;
 use Carbon\Carbon;
 use App\Building;
 use Image;
+use App\Floor;
+use App\Unit;
 
 class RoomsController extends Controller
 {
@@ -45,9 +47,11 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        $owners = Owner::lists('first_name','id');
-        $buildings = Building::lists('name','id');
-        return view('rooms.create', compact('owners','buildings'));
+        $owners = Owner::pluck('first_name','id');
+        $buildings = Building::pluck('name','id');
+        $floors = Floor::pluck('name','id');
+        $units = Unit::pluck('unit_no','id');
+        return view('rooms.create', compact('owners','buildings','floors','units'));
     }
 
     /**
@@ -61,6 +65,8 @@ class RoomsController extends Controller
         $room = Auth::user()->rooms()->create($request->all());  
         $room->owners()->attach($request->input('owner_list'));
         $room->buildings()->attach($request->input('building_list'));
+        $room->floors()->attach($request->input('floor_list'));
+        $room->units()->attach($request->input('units_list'));
 
          return redirect('dashboard');
     }

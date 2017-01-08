@@ -9,9 +9,6 @@ class Room extends Model
 {
     protected $fillable = [
     		'name',
-    		'floor_num',
-    		'no_unit',
-    		'building_num'
     ];
 
     /* list user */
@@ -42,7 +39,29 @@ class Room extends Model
 
     public function getBuildingListAttribute()
     {
-        return $this->buildings->lists('id')->all();
+        return $this->buildings->pluck('id')->all();
+    }
+
+    /*list all floors  */
+    public function floors()
+    {
+        return $this->belongsToMany('App\Floor')->withTimestamps();
+    }
+
+    public function getFloorListAttribute()
+    {
+        return $this->floors->pluck('id')->all();
+    }
+
+    /* list all unit per floor */
+    public function units()
+    {
+        return $this->belongsToMany('App\Unit')->withTimestamps();
+    }
+
+    public function getUnitListAttribute()
+    {
+        return $this->units->pluck('id')->all();
     }
 
     

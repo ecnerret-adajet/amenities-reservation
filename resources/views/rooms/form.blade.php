@@ -1,4 +1,21 @@
-                             <div class="form-group{{ $errors->has('owner_list') ? ' has-error' : '' }}">
+                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label"> 
+                        {!! Form::label('name', 'Room Name:')  !!}
+                        </label>
+                        <div class="col-md-6">
+                        {!! Form::text('name', null,  ['class' => 'form-control']) !!}     
+
+                        @if ($errors->has('name'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                        @endif
+                        </div>
+                        </div>
+
+
+
+                        <div class="form-group{{ $errors->has('owner_list') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label"> 
                         {!! Form::label('owner_list', 'Assign Owner:')  !!} 
                         </label>
@@ -34,44 +51,41 @@
                         </div>
 
 
-
-                        <div class="form-group{{ $errors->has('no_unit') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('unit_list') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label"> 
-                        {!! Form::label('no_unit', 'Unit no:')  !!}
+                        {!! Form::label('unit_list', 'Unit Number:')  !!} 
                         </label>
                         <div class="col-md-6">
+                        {!! Form::select('unit_list', $units, null, ['class' => 'form-control', 'placeholder' => '-- Select Builidng name --']) !!}
 
-                         {{ Form::selectRange('no_unit', 1,170, 
-                                null, array('placeholder' => ' -- Select Unit number --', 'class'=>'form-control select2' )) }}    
-
-                        @if ($errors->has('no_unit'))
+                        @if ($errors->has('unit_list'))
                         <span class="help-block">
-                        <strong>{{ $errors->first('no_unit') }}</strong>
+                        <strong>{{ $errors->first('unit_list') }}</strong>
                         </span>
                         @endif
                         </div>
                         </div>
+
+
+
+                        <div class="form-group{{ $errors->has('floor_list') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label"> 
+                        {!! Form::label('floor_list', 'Floor Number:')  !!} 
+                        </label>
+                        <div class="col-md-6">
+                        {!! Form::select('floor_list', $floors, null, ['class' => 'form-control', 'placeholder' => '-- Select Builidng name --']) !!}
+
+                        @if ($errors->has('floor_list'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('floor_list') }}</strong>
+                        </span>
+                        @endif
+                        </div>
+                        </div>
+
+
 
                     
-
-                        <div class="form-group{{ $errors->has('floor_num') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label"> 
-                        {!! Form::label('floor_num', 'Floor Number:')  !!}
-                        </label>
-                        <div class="col-md-6">
-                        <?php
-                        $x = 0;
-                        ?>
-                         {{ Form::selectRange('floor_num', 1,17, 
-                                null, array('placeholder' => ' -- Select Floor Number --', 'class'=>'form-control select2' )) }}
-
-                        @if ($errors->has('floor_num'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('floor_num') }}</strong>
-                        </span>
-                        @endif
-                        </div>
-                        </div>
 
                   
 
