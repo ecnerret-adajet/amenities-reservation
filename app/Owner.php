@@ -11,7 +11,6 @@ class Owner extends Model
     	'first_name',
     	'middle_name',
     	'last_name',
-    	'age',
     	'birthday',
     	'phone_num',
     	'telephone_num',

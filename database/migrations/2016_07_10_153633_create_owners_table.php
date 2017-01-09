@@ -18,7 +18,6 @@ class CreateOwnersTable extends Migration
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
-            $table->integer('age');
             $table->timestamp('birthday');
             $table->string('phone_num');
             $table->string('telephone_num');

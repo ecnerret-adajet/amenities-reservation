@@ -45,7 +45,10 @@
           <img class="img-responsive img-circle" style="width:35px; height:auto;" src="{{asset('/img/owners/'.$owner->avatar)}}">
         </td>
         <td>{{$owner->first_name}} {{$owner->middle_name}} {{$owner->last_name}}</td>
-        <td>{{$owner->age}}</td>
+        <td>
+             {{  $owner->birthday->diffInYears($base_date) }}
+
+        </td>
         <td>
           {{ date('F d, Y', strtotime($owner->birthday)) }}
         </td>

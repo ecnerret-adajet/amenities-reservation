@@ -33,11 +33,13 @@ class OwnersController extends Controller
     {
          $owners = Owner::latest()->get();
          $rooms = Room::all();
+         $base_date = Carbon::now();
          
 
 
         return view('owners.index', compact(
-            'owners'
+            'owners',
+            'base_date'
             ));
     }
 

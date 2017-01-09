@@ -53,21 +53,6 @@
 
                     
 
-                        <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label"> 
-                        {!! Form::label('age', 'Age:')  !!}
-                        </label>
-                        <div class="col-md-6">
-                        {!! Form::number('age', null,  ['class' => 'form-control']) !!}     
-
-                        @if ($errors->has('age'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('age') }}</strong>
-                        </span>
-                        @endif
-                        </div>
-                        </div>
-
 
                          <div class="form-group">
                          <label class="col-md-4 control-label"> 
