@@ -103,8 +103,16 @@
           {{$building->name}}
         @endforeach
       </td>
-      <td>{{$room->floor_num}}</td>
-      <td>{{$room->no_unit}}</td>
+      <td>
+        @foreach($room->floors as $floor)
+          {{$floor->name}}
+        @endforeach
+      </td>
+      <td>
+        @foreach($room->units as $unit)
+          {{$unit->unit_no}}
+        @endforeach
+      </td>
       <td>
       @role('Administrator')
       <a class="btn btn-primary" href="{{url('/rooms/'.$room->id.'/edit')}}">

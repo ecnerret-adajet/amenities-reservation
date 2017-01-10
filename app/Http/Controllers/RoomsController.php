@@ -67,20 +67,25 @@ class RoomsController extends Controller
         $room->owners()->attach($request->input('owner_list'));
         $room->buildings()->attach($request->input('building_list'));
         $room->floors()->attach($request->input('floor_list'));
-        $room->units()->attach($request->input('units_list'));
+        $room->units()->attach($request->input('unit_list'));
 
-        $tracks = Track::all();
-        foreach($tracks as $track){
-            foreach($track->trucks->reverse()->take(1) as $truck){
-                    $id = $truck->id;
-            }
-       }
+        $rooms = Room::all();
+        foreach($rooms as $room){
+            foreach($room->floors as $floor)
+            {
+                $floor_id = $floor->id;
+             }
+            foreach($room->units as $unit)
+            {
+                $unit_id = $unit->id;
+             }      
+         }
 
-        $floor = Floor::findOrFail($id);
+        $floor = Floor::findOrFail($floor_id);
         $floor->availability = 1;
         $floor->save();
 
-        $unit = Unit::findOrFail($id);
+        $unit = Unit::findOrFail($unit_id);
         $unit->availability = 1;
         $unit->save();
 

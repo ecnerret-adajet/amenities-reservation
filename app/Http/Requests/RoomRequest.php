@@ -28,7 +28,8 @@ class RoomRequest extends Request
             'owner_list' => 'required',
             'building_list' => 'required',
             'unit_list' => 'required',
-            'floor_list' => 'required',
+            'floor_list' => 'required'
+            ];
             
     }
 }
