@@ -75,17 +75,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
 
-                   <form class="navbar-form navbar-left" role="search">
-       <div class="input-group">
-   
-    <input type="text" class="form-control">
-     <span class="input-group-addon"><i class="ion-android-search"></i></span>
-  </div>
-      </form>
                
   
-           
-  
+         
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -104,9 +96,15 @@
                          <li class="hidden-md hidden-lg"><a href="{{url('reports')}}"> Report</a></li>
                          <li class="hidden-md hidden-lg"><a href="{{url('grants')}}"> Acess Log</a></li>
 
-                             <li >
+                          <li>
+                            <a href=""  aria-expanded="false">
+                              Welcome {{ Auth::user()->name }}
+                            </a>
+                          </li>
+
+                             <li >      
                             <a href="{{ url('/logout') }}"  aria-expanded="false">
-                             <i class="fa fa-sign-out" aria-hidden="true"></i>  Logout 
+                             <i class="fa fa-sign-out" aria-hidden="true"></i>   
                             </a>
 
                         </li>
@@ -118,7 +116,7 @@
         </div>
     </nav>
 
-    <div class="row text-uppercase" style="background: #2980b9; margin: 0; padding: 20px;">
+    <div class="row text-uppercase" style="background: #000; margin: 0; padding: 20px;">
     <div class="container">
 
  <ul class="nav nav-pills">
@@ -135,9 +133,7 @@
   @endrole
 
 
-    <li class="pull-right">
-     <h5 class="nav-style">   Hi  <span style="font-weight: 700;">{{ Auth::user()->name }}</span> </h5>
-    </li>
+
 
 </ul>
 

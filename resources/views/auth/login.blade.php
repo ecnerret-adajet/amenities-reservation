@@ -45,7 +45,7 @@
 <div class="container" style="margin-top: 50px; margin-bottom: 20px;">
     <div class="row text-center">
         <div class="col-md-6 col-md-offset-3">
-            <img class="img-responsive" style="display: inline-block; width: 150px; height: auto;" src="{{asset('img/assets/logo.png')}}"></span>
+            <img class="img-responsive" style="display: inline-block; width: 200px; height: auto;" src="{{asset('img/assets/logo.png')}}"></span>
         </div>
     </div>
 </div>

@@ -17,6 +17,9 @@ class CreateUnitsTable extends Migration
             $table->integer('unit_no')->unsigned();
             $table->boolean('availability')->default(0);
             $table->timestamps();
+
+
+
         });
 
         Schema::create('room_unit', function(Blueprint $table) {

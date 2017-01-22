@@ -50,8 +50,18 @@ class RoomsController extends Controller
     {
         $owners = Owner::pluck('first_name','id');
         $buildings = Building::pluck('name','id');
+
         $floors = Floor::where('availability',0)->pluck('name','id');
-        $units = Unit::where('availability',0)->pluck('unit_no','id');
+
+
+        $units = Unit::whereHas('floor', function($q){
+            $q->where('id', 3);
+        })->pluck('unit_no','id');
+
+        
+
+        
+        
         return view('rooms.create', compact('owners','buildings','floors','units'));
     }
 

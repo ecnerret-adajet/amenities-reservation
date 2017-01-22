@@ -4,9 +4,7 @@
 
 <h1> Dashboard </h1>
 
-<ul class="breadcrumb">
-  <li class="active">Dashboard</li>
-</ul>
+
 
    <div class="row">
 
@@ -25,7 +23,7 @@
             </div><!-- /.col -->
             <div class="col-xs-3">
               <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="ion-ios-locked-outline"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="ion-ios-locked-outline"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Total Owners</span>
                   <span class="info-box-number">{{$owners->count() }}</span>
@@ -34,7 +32,7 @@
             </div><!-- /.col -->
             <div class="col-xs-3">
               <div class="info-box">
-                <span class="info-box-icon bg-yellow"><i class="ion-ios-people-outline"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Total tenants</span>
                   <span class="info-box-number">{{$tenants->count()}}</span>
@@ -43,7 +41,7 @@
             </div><!-- /.col -->
             <div class=" col-xs-3">
               <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="ion-ios-basketball-outline"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="ion-ios-basketball-outline"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Used Amenities</span>
                   <span class="info-box-number">{{$amenities->count()}}</span>
