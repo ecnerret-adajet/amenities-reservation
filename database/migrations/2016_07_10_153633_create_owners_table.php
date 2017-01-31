@@ -21,7 +21,8 @@ class CreateOwnersTable extends Migration
             $table->timestamp('birthday');
             $table->string('phone_num');
             $table->string('telephone_num');
-             $table->string('avatar')->default('avatar.png');
+            $table->string('avatar')->default('avatar.png');
+            $table->boolean('availability')->default(1);
            
             $table->foreign('user_id')
                 ->references('id')

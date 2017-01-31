@@ -14,6 +14,7 @@ use App\Tenant;
 use App\User;
 use Image;
 use Carbon\Carbon;
+use Flashy;
 
 class OwnersController extends Controller
 {
@@ -75,6 +76,20 @@ class OwnersController extends Controller
 
 
          return redirect('owners');
+    }
+
+
+    /**
+     * mark owner as inactive
+     */
+    public function disable(Request $request, $id)
+    {
+        $owner = Owner::findOrFail($id);
+        $owner->availability = 0;
+        $owner->update();
+
+        flashy()->success('successfully disable a owner');
+        return redirect('owners');
     }
 
     /**

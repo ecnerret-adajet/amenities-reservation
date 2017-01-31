@@ -22,6 +22,7 @@ class CreateTenantsTable extends Migration
             $table->timestamp('birthday');
             $table->string('phone_num');
             $table->string('telephone_num');
+            $table->boolean('availability')->default(1);
            
              $table->foreign('user_id')
                 ->references('id')

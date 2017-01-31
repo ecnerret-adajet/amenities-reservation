@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Collection;
+use Carbon\Carbon;
+use App\Reservation;
+use Flashy;
 
 use App\Http\Requests;
-use App\Htpp\Requests\ReservationRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Collection;
-use App\Owner;
-use App\Tenant;
-use User;
-use Reservation;
-use Amenity;
 
-class reservationsController extends Controller
+class ReservationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +20,8 @@ class reservationsController extends Controller
      */
     public function index()
     {
-        //
+        $reservations = Reservation::all();
+        return view('reservations.index','compact('reservations')');
     }
 
     /**
@@ -33,7 +31,7 @@ class reservationsController extends Controller
      */
     public function create()
     {
-        //
+        return view('reservations.create');
     }
 
     /**
@@ -44,7 +42,14 @@ class reservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:reservations'
+        ]);
+
+        $reservation = Auth::user()->reservations()->create($request->all());
+        flashy()->success('Successfully Created Reservation');
+        return redirect('reservations');
+
     }
 
     /**
@@ -53,9 +58,9 @@ class reservationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Reservation $reservation)
     {
-        //
+        return view('reservations.show',compact('reservation'));
     }
 
     /**
@@ -76,9 +81,10 @@ class reservationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Reservation $reservation)
     {
-        //
+        $reservation->update($request->all());
+        flashy()->success('Reservation successfully updated');
     }
 
     /**
@@ -87,8 +93,9 @@ class reservationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Reservation $reservation)
     {
-        //
+        $reservation->delete();
+        flashy()->success('Reservation successfully deleted');
     }
 }

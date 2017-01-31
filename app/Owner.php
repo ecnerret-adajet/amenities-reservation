@@ -14,7 +14,8 @@ class Owner extends Model
     	'birthday',
     	'phone_num',
     	'telephone_num',
-        'avatar'
+        'avatar',
+        'availability'
     ];
 
     protected $dates = [

@@ -55,9 +55,28 @@
         <td>{{$owner->phone_num}}</td>
         <td>{{$owner->telephone_num}}</td>
         <td>
-        <a class="btn btn-primary" href="{{ url('/owners/'.$owner->id) }}">
+
+      <div class="btn-group">
+      <a href="#" class="btn btn-primary dropdown-toggle btn-block" data-toggle="dropdown" aria-expanded="false">
+        Dropdown
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+        <a  href="{{ url('/owners/'.$owner->id) }}">
           Details
         </a>
+        </li>
+        <li>
+        <a data-toggle="modal" data-target=".bs-disable{{$owner->id}}-modal-lg" href="">
+        Disable User
+        </a>
+        </li>
+       </ul>
+    </div>
+
+
+
 
         </td>
 
@@ -70,4 +89,47 @@
 
   </div>
 </div>
+
+
+@foreach($owners as $owner)
+
+           <!-- archive a company modal -->
+        <div class="modal fade bs-disable{{$owner->id}}-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Disable a owner</h4>
+              </div>
+              <div class="modal-body">
+                      <div class="row">
+                <div class="col-md-12">
+                <div class="panel-body text-center"> 
+            
+                <h4>  
+                    Are you sure you want to disable this owner?
+                </h4>
+    
+                        
+             <form method="POST" action="{{ url('/owners/disable/'.$owner->id) }}">
+              {!! csrf_field() !!}  
+                                                
+            </div>
+                </div>
+            </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Confirm</button>
+                  
+                   
+              </div>
+              </form> 
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->    
+@endforeach
+
+
+
 @endsection

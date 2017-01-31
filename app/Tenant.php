@@ -14,7 +14,8 @@ class Tenant extends Model
     	'age',
     	'birthday',
     	'phone_num',
-    	'telephone_num'
+    	'telephone_num',
+        'availability'
 
     ];
 

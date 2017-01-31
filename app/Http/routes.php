@@ -34,7 +34,14 @@ Route::delete('roles/{id}',['as'=>'roles.destroy','uses'=>'RoleController@destro
 
 
 Route::resource('owners','OwnersController');
+Route::post('owners/disable/{id}','OwnersController@disable');
+
+
 Route::resource('tenants','TenantsController');
+Route::post('tenants/disable/{id}', 'TenantsController@disable');
+
+
+
 Route::resource('rooms','RoomsController');
 Route::resource('amenities','AmenitiesController');
 
@@ -47,5 +54,9 @@ Route::resource('grants', 'GrantsController', ['except' => [
 ]]);
 Route::post('grants/{id}','GrantsController@store');
 
+/**
+ * route reservation setup
+ */
+Route::resource('reservations','ReservationController');
 
 });

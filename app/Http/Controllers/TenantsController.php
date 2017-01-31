@@ -74,6 +74,19 @@ class TenantsController extends Controller
     }
 
     /**
+     * mark tenant as disable
+     */
+    public function disable(Request $request, $id)
+    {
+        $tenant = Tenant::findOrFail($id);
+        $tenant->availability = 0;
+        $tenant->update();
+
+        flashy()->success('Successfully disabled a tenant');
+        return redirect('tenants');
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
