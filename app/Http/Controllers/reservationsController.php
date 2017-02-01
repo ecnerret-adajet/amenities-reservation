@@ -21,7 +21,8 @@ class ReservationsController extends Controller
     public function index()
     {
         $reservations = Reservation::all();
-        return view('reservations.index','compact('reservations')');
+        return view('reservations.index',compact(
+            'reservations'));
     }
 
     /**
@@ -85,6 +86,7 @@ class ReservationsController extends Controller
     {
         $reservation->update($request->all());
         flashy()->success('Reservation successfully updated');
+        return redirect('reservations');
     }
 
     /**
@@ -97,5 +99,6 @@ class ReservationsController extends Controller
     {
         $reservation->delete();
         flashy()->success('Reservation successfully deleted');
+        return redirect('reservations');
     }
 }

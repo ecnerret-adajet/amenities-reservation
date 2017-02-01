@@ -3,7 +3,6 @@
 @section('content')
 <h1 class="page-header">Users Management
 <a href="{{ route('users.create') }}" class="btn pull-right btn-primary btn-sm"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create New User</a>
-<a href="{{ url('/roles')}}" class="btn pull-right btn-danger btn-sm"><i class="fa fa-life-ring" aria-hidden="true"></i> Manage Roles</a>
  </h1>
 
 	@if ($message = Session::get('success'))

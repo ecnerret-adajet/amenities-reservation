@@ -11,7 +11,10 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title" style="font-weight: 500;"> Amenities <a href="{{url('amenities/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Amenity</a></h3>
+    <h3 class="panel-title" style="font-weight: 500;"> Amenities <a href="{{url('amenities/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Reserve Amenity</a>
+
+     <a href="{{url('reservations')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Amenity</a>
+    </h3>
   </div>
   <div class="panel-body">
   <table  id="room"  class="dt-responsive nowrap display table-responsive table-bordered table-hover table" width="100%">

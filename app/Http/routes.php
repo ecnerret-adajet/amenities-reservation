@@ -57,6 +57,6 @@ Route::post('grants/{id}','GrantsController@store');
 /**
  * route reservation setup
  */
-Route::resource('reservations','ReservationController');
+Route::resource('reservations','ReservationsController');
 
 });
