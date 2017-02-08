@@ -80,7 +80,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand brand-hr" href="{{ url('/home') }}">
+                <a class="navbar-brand brand-hr" href="{{ url('/dashboard') }}">
                    <img class="img-responsive" style="display: inline-block; width: 30px; height: auto" src="{{asset('img/assets/logo.png')}}"> {{ config('app.name', 'Central Condominium') }}
                 </a>
             </div>
@@ -96,17 +96,20 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     
-
+                      @role('Administrator')
                        <li class="hidden-md hidden-lg"><a  href="{{url('dashboard')}}"> 
                        Dashboard</a>
                        </li>
 
                         <li class="hidden-md hidden-lg"><a href="{{url('rooms/create')}}"> Rooms</a></li>
+                        @endrole
                          <li class="hidden-md hidden-lg"><a href="{{url('amenities')}}"> Amenities</a></li>
+                              @role('Administrator')
                         <li class="hidden-md hidden-lg"><a href="{{url('owners')}}"> Owners</a></li>
                         <li class="hidden-md hidden-lg"><a href="{{url('tenants')}}"> Tenants</a></li>
                         <li class="hidden-md hidden-lg"><a href="{{url('users')}}"> Users</a></li>
                          <li class="hidden-md hidden-lg"><a href="{{url('reports')}}"> Report</a></li>
+                         @endrole
                          <li class="hidden-md hidden-lg"><a href="{{url('grants')}}"> Acess Log</a></li>
 
                           <li>

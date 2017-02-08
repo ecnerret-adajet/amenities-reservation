@@ -22,12 +22,16 @@
     <style>
         body {
             font-family: 'Lato';
-            background: url('../img/assets/bg.jpg') no-repeat;
+            background: url('../img/assets/bluebg.jpeg') no-repeat;
             background-size: cover;
         }
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        .black-heading{
+            background-color: black ! important;
         }
 
     </style>
@@ -51,13 +55,14 @@
         <div class="col-md-6">
                <div class="row text-center">
         <div class="col-md-6 col-md-offset-3">
-            <img class="img-responsive" style="display: inline-block; width: 200px; height: auto;" src="{{asset('img/assets/logo.png')}}"></span>
+            <img class="img-responsive" style="margin-top: 200px; display: inline-block; width: 200px; height: auto;" src="{{asset('img/assets/logo2.png')}}"></span>
         </div>
     </div>
         </div>
         <div class="col-md-6">
+        <h1 class="text-center">Central Condominium</h1>
             <div class="panel panel-primary">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading black-heading">Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
