@@ -14,6 +14,7 @@
     <h3 class="panel-title" style="font-weight: 500;"> Amenities <a href="{{url('amenities/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Reserve Amenity</a>
 
      <a href="{{url('reservations')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Amenity</a>
+     <a href="{{url('buildings')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Building</a>
     </h3>
   </div>
   <div class="panel-body">

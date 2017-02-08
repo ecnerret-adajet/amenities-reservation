@@ -24,9 +24,10 @@ class OwnerRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required|min:3',
-            'middle_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
+            'first_name' => 'required|min:3|alpha',
+            'middle_name' => 'required|min:3|alpha',
+            'last_name' => 'required|min:3|alpha',
+            'phone_num' => 'required|min:11'
         ];
     }
 }

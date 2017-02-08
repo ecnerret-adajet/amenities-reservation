@@ -58,5 +58,11 @@ Route::post('grants/{id}','GrantsController@store');
  * route reservation setup
  */
 Route::resource('reservations','ReservationsController');
+/**
+ * route setup for building 
+ */
+Route::resource('buildings','BuildingsController');
+
+
 
 });

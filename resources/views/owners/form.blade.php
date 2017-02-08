@@ -70,7 +70,7 @@
                         {!! Form::label('phone_num', 'Phone number:')  !!}
                         </label>
                         <div class="col-md-6">
-                        {!! Form::text('phone_num', null,  ['class' => 'form-control', "data-inputmask" => "'mask': '+63999-9999-999'", 'data-mask' ]) !!} 
+                        {!! Form::text('phone_num', null,  ['class' => 'form-control', "data-inputmask" => "'mask': '+63[999-9999-999]'", 'data-mask' ]) !!} 
 
                         @if ($errors->has('phone_num'))
                         <span class="help-block">

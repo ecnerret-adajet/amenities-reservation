@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
 
+
+
     <!-- Styles   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
      -->
@@ -40,8 +42,19 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
-        body {
+        html, body {
             font-family: 'Lato';
+            background: -moz-linear-gradient(108deg, rgba(192,192,192,1) 0%, rgba(192,192,192,1) 11%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 86%, rgba(0,0,0,1) 97%, rgba(0,0,0,1) 100%); /* ff3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(3%, rgba(0,0,0,1)), color-stop(14%, rgba(0,0,0,1)), color-stop(20%, rgba(0,0,0,1)), color-stop(89%, rgba(192,192,192,1)), color-stop(100%, rgba(192,192,192,1))); /* safari4+,chrome */
+            background: -webkit-linear-gradient(108deg, rgba(192,192,192,1) 0%, rgba(192,192,192,1) 11%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 86%, rgba(0,0,0,1) 97%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
+            background: -o-linear-gradient(108deg, rgba(192,192,192,1) 0%, rgba(192,192,192,1) 11%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 86%, rgba(0,0,0,1) 97%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
+            background: -ms-linear-gradient(108deg, rgba(192,192,192,1) 0%, rgba(192,192,192,1) 11%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 86%, rgba(0,0,0,1) 97%, rgba(0,0,0,1) 100%); /* ie10+ */
+            background: linear-gradient(342deg, rgba(192,192,192,1) 0%, rgba(192,192,192,1) 11%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 86%, rgba(0,0,0,1) 97%, rgba(0,0,0,1) 100%); /* w3c */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#c0c0c0',GradientType=0 ); /* ie6-9 */
+        }
+
+        .header-title{
+          color: #fff ! important;
         }
 
         .fa-btn {

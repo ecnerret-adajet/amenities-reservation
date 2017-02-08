@@ -43,16 +43,19 @@
    
  <body>
 <div class="container" style="margin-top: 50px; margin-bottom: 20px;">
-    <div class="row text-center">
-        <div class="col-md-6 col-md-offset-3">
-            <img class="img-responsive" style="display: inline-block; width: 200px; height: auto;" src="{{asset('img/assets/logo.png')}}"></span>
-        </div>
-    </div>
+
 </div>
 
 <div class="container">
     <div class="row">
+        <div class="col-md-6">
+               <div class="row text-center">
         <div class="col-md-6 col-md-offset-3">
+            <img class="img-responsive" style="display: inline-block; width: 200px; height: auto;" src="{{asset('img/assets/logo.png')}}"></span>
+        </div>
+    </div>
+        </div>
+        <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
