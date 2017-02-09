@@ -38,7 +38,7 @@
 
   <tbody>
 
-   @foreach($owners as $owner)
+   @foreach($owners->where('availability', 1, false) as $owner)
     <tr>
  
         <td>

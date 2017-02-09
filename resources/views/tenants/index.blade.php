@@ -38,7 +38,7 @@
 
 
   <tbody>
-  @foreach($tenants as $tenant)
+  @foreach($tenants->where('availability', 1, false) as $tenant)
     <tr>
 
 

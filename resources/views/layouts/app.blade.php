@@ -52,6 +52,10 @@
             background: linear-gradient(342deg, rgba(192,192,192,1) 0%, rgba(192,192,192,1) 11%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 86%, rgba(0,0,0,1) 97%, rgba(0,0,0,1) 100%); /* w3c */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#c0c0c0',GradientType=0 ); /* ie6-9 */
         }
+        html {
+  position: relative;
+  min-height: 100%;
+}
 
         .header-title{
           color: #fff ! important;
@@ -72,6 +76,19 @@
             color: #ffffff;
             background-color: #158cba;
         }
+
+        .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.text-muted {
+  margin: 20px 0;
+}
     </style>
 </head>
 
@@ -170,7 +187,7 @@
     </div>
 
 <div class="container">
-<div class="row">
+<div class="row" style="margin-bottom: 100px;">
 
 
  @endif
@@ -188,6 +205,14 @@
 
 
 </div>
+
+</div>
+
+  <footer class="footer">
+      <div class="container">
+        <p class="text-muted">All right reserved 2017 Powered By: BSIT 4E</p>
+      </div>
+    </footer>
 
     <!-- jQuery -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
