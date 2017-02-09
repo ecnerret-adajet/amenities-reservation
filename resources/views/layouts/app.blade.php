@@ -57,8 +57,20 @@
           color: #fff ! important;
         }
 
+        h1{
+          color: #fff ! important;
+        }
+
         .fa-btn {
             margin-right: 6px;
+        }
+
+                .panel-title, .panel-heading{
+          background-color: #000 ! important;
+        }
+       .nav-pills>li>a:hover{
+            color: #ffffff;
+            background-color: #158cba;
         }
     </style>
 </head>
@@ -67,7 +79,7 @@
 
      @if (Auth::check())
                    
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0 ! important">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0 ! important; padding: 10px;">
         <div class="container">
             <div class="navbar-header">
 
@@ -81,7 +93,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand brand-hr" href="{{ url('/dashboard') }}">
-                   <img class="img-responsive" style="display: inline-block; width: 30px; height: auto" src="{{asset('img/assets/logo.png')}}"> {{ config('app.name', 'Central Condominium') }}
+                   <img class="img-responsive" style="display: inline-block; width: 45px; height: auto" src="{{asset('img/assets/logo.png')}}"> {{ config('app.name', 'Central Condominium') }}
                 </a>
             </div>
 
@@ -120,7 +132,7 @@
 
                              <li >      
                             <a href="{{ url('/logout') }}"  aria-expanded="false">
-                             <i class="fa fa-sign-out" aria-hidden="true"></i>   
+                             Logout
                             </a>
 
                         </li>

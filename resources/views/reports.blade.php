@@ -2,7 +2,7 @@
 @section('content')
 
 
-<h2>Report Content</h2>
+<h1>Report Content</h1>
 
 <div class="panel panel-primary print">
   <div class="panel-heading">

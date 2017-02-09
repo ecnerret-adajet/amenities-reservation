@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<h1>All Owners</h1>
+<h1 class="header-title"> All Owners</h1>
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title" style="font-weight: 500;"> Owners <a href="{{url('owners/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Owner</a><a href="{{url('tenants/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Tenant</a></h3>
+    <h3 class="panel-title" style="font-weight: 500;"> Owners <a href="{{url('owners/create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Add Owner</a></h3>
   </div>
   <div class="panel-body">
  
