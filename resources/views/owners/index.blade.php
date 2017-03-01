@@ -42,7 +42,10 @@
     <tr>
  
         <td>
-          <img class="img-responsive img-circle" style="width:35px; height:auto;" src="{{asset('/img/owners/'.$owner->avatar)}}">
+          <img class="img-responsive img-circle" style="width:35px; height:auto;" src="{{  str_replace('public/','img/owners/',asset($owner->avatar)) }}">
+
+
+
         </td>
         <td>{{$owner->first_name}} {{$owner->middle_name}} {{$owner->last_name}}</td>
         <td>
