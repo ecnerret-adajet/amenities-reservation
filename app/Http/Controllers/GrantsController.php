@@ -11,6 +11,7 @@ use App\Grant;
 use App\User;
 use App\Owner;
 use Flashy;
+use DB;
 
 
 class GrantsController extends Controller
@@ -22,8 +23,28 @@ class GrantsController extends Controller
      */
     public function index()
     {
-        $grants = Grant::all();
-        return view('grants.index', compact('grants'));
+        $grants = Grant::orderBy('created_at','desc')->get();
+        return view('grants.index', compact('grants','start_date','end_date'));
+    }
+
+    /**
+     * search for authorize logs
+     */
+    public function logs(Request $request){
+        $this->validate($request, [
+           'start_date' => 'required',
+            'end_date' => 'required'
+        ]); 
+
+        $start_date = $request->get('start_date');
+         $end_date = $request->get('end_date');
+
+        $grants = Grant::where(DB::raw('DATE_FORMAT(created_at,"%Y-%m-%d")'),'>=',$start_date)
+            ->where(DB::raw('DATE_FORMAT(created_at,"%Y-%m-%d")'),'<=',$end_date)
+            ->get();
+
+        return view('grants.index', compact('grants','start_date','end_date'));
+
     }
 
     /**

@@ -52,6 +52,7 @@ Route::get('/report', 'HomeController@getreport');
 Route::resource('grants', 'GrantsController', ['except' => [
  			 'store',
 ]]);
+Route::get('logs','GrantsController@logs');
 Route::post('grants/{id}','GrantsController@store');
 
 /**

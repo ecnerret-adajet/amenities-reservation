@@ -8,6 +8,57 @@
   </div>
   <div class="panel-body">
 
+     {{ Form::open(array('url' => '/logs', 'method' => 'get')) }}
+               <div class="form-group col-md-4">
+                 <div class="form-group">
+
+                         <div class="input-group">
+    <span class="input-group-addon" style="background-color: #bdc3c7; color: #fff;">Start Date</span>
+   <div class='input-group date' id='datetimepicker2'>
+                    {!! Form::input('date', 'start_date', null, ['class' => 'form-control']) !!}  
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+  </div>
+
+
+                
+            </div>
+
+     
+
+            </div>
+
+             <div class="form-group col-md-4">
+
+                  <div class="form-group">
+
+                <div class="input-group">
+    <span class="input-group-addon" style="background-color: #bdc3c7; color: #fff;">End Date</span>
+     <div class='input-group date' id='datetimepicker2'>
+                     {!! Form::input('date', 'end_date', null, ['class' => 'form-control']) !!} 
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+  </div>
+
+
+             
+            </div>
+
+                   
+                </div><!-- /.form group -->
+
+                 <label class="col-md-2"> 
+                        <button type="submit" class="btn btn-primary btn-block pull-right">
+                                    <i class="fa fa-btn fa-cog"></i> generate
+                                </button>
+                 </label>
+          {!! Form::close() !!}
+               
+
 
   <table class="table table-bordered">
   		<thead>
